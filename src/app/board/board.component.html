@@ -1,0 +1,13 @@
+<div>
+  <div class="board" *ngFor="let array of matrix; index as i">
+    <app-square *ngFor="let item of array; index as j" [row]=i [col]=j [val]="matrix[i][j]" [isXNext]="isXNext"
+      [winPosition]="winPosition" (clickEvent)="onSquareClick($event)">
+    </app-square>
+  </div>
+  <button (click)="onResetClick()">Reset game</button>
+  <div>
+    <p *ngIf="winner===1">X win</p>
+    <p *ngIf="winner===2">O win</p>
+    <p *ngIf="isDraw">Draw!!!</p>
+  </div>
+</div>
